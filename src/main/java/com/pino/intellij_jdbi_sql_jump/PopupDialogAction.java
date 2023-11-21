@@ -60,6 +60,9 @@ public class PopupDialogAction extends AnAction {
             case "PsiReferenceExpressionImpl":
                 // todo 有時間再補
                 break;
+            default:
+                showNotSupportedNotification(project);
+                break;
         }
 
     }
@@ -101,12 +104,24 @@ public class PopupDialogAction extends AnAction {
         if (targetSqlFile != null && targetSqlFile.isValid()) {
             FileEditorManager.getInstance(project).openFile(targetSqlFile, true);
         } else {
-            var groupId = "Jdbi sql jump: SQL not found";
-            var title = "SQL not found!";
-            var content = "Not found: %s".formatted(sqlPath);
-            var notification = new Notification(groupId, title, content, NotificationType.WARNING);
-            Notifications.Bus.notify(notification, project);
+            showSqlNotFoundNotification(project, sqlPath);
         }
+    }
+
+    private void showSqlNotFoundNotification(Project project, String sqlPath) {
+        var groupId = "Jdbi sql jump: SQL not found";
+        var title = "SQL not found!";
+        var content = "Not found: %s".formatted(sqlPath);
+        var notification = new Notification(groupId, title, content, NotificationType.WARNING);
+        Notifications.Bus.notify(notification, project);
+    }
+
+    private void showNotSupportedNotification(Project project) {
+        var groupId = "Jdbi sql jump: Not supported";
+        var title = "Not supported!";
+        var content = "This feature is not supported";
+        var notification = new Notification(groupId, title, content, NotificationType.WARNING);
+        Notifications.Bus.notify(notification, project);
     }
 
 }
