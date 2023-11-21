@@ -1,1 +1,1 @@
-# intellij-jdbi-sql-Jump
+# intellij-jdbi-sql-jump

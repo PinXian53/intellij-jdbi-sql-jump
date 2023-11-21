@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "intellij-jdbi-sql-Jump"
+rootProject.name = "intellij-jdbi-sql-jump"
