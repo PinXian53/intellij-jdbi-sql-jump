@@ -5,7 +5,7 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Jdbi Sql Jump</name>
+    <name>Jdbi SQL Jump</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor >Pino</vendor>
@@ -14,8 +14,13 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    <em>This is a JDBI development tool.</em>
-    <em>When you use @UseClasspathSqlLocator, you can quickly jump to the corresponding SQL file.</em>
+    This is a <a href="https://jdbi.org/">JDBI</a> development tool.
+    When you use the <code style="color: #F75000">@UseClasspathSqlLocator</code> annotation in JDBI, the code and SQL need to be written separately, causing inconvenience in development.
+    <br/><br/>
+    By using this plugin, it helps you quickly jump from code to the corresponding SQL file.
+    <br/><br/>
+    There has one way to trigger a jump:
+    <li>Select the corresponding code, then click on "Jdbi SQL Jump" from the right-click menu.</li>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -30,7 +35,7 @@
     <actions>
         <action id="com.pino.intellij_jdbi_sql_jump.PopupDialogAction"
                 class="com.pino.intellij_jdbi_sql_jump.PopupDialogAction"
-                text="Jdbi Sql Jump"
+                text="Jdbi SQL Jump"
                 icon="/icons/actionIcon.svg"
         >
             <add-to-group group-id="EditorPopupMenu" />
