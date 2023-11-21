@@ -1,12 +1,14 @@
 package com.pino.intellij_jdbi_sql_jump;
 
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationType;
+import com.intellij.notification.Notifications;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
@@ -58,7 +60,6 @@ public class PopupDialogAction extends AnAction {
             case "PsiReferenceExpressionImpl":
                 // todo 有時間再補
                 break;
-
         }
 
     }
@@ -100,9 +101,11 @@ public class PopupDialogAction extends AnAction {
         if (targetSqlFile != null && targetSqlFile.isValid()) {
             FileEditorManager.getInstance(project).openFile(targetSqlFile, true);
         } else {
-            var title = "SQL Not Found!";
-            var message = "Not found: %s".formatted(sqlPath);
-            Messages.showMessageDialog(project, message, title, Messages.getInformationIcon());
+            var groupId = "Jdbi sql jump: SQL not found";
+            var title = "SQL not found!";
+            var content = "Not found: %s".formatted(sqlPath);
+            var notification = new Notification(groupId, title, content, NotificationType.WARNING);
+            Notifications.Bus.notify(notification, project);
         }
     }
 
