@@ -10,6 +10,7 @@ import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.*;
 import org.jetbrains.annotations.NotNull;
 
 public class PopupDialogAction extends AnAction {
@@ -58,13 +59,14 @@ public class PopupDialogAction extends AnAction {
                 doPsiMethodFlow(project, virtualFile, methodName);
                 break;
             case "PsiReferenceExpressionImpl":
-                // todo 有時間再補
+                var referenceElement = ((PsiReference)psiElement.getParent()).resolve();
+                var referenceVirtualFile = referenceElement.getContainingFile().getVirtualFile();
+                doPsiMethodFlow(project, referenceVirtualFile, methodName);
                 break;
             default:
                 showNotSupportedNotification(project);
                 break;
         }
-
     }
 
     private VirtualFile getRootFolder(Project project, VirtualFile file) {

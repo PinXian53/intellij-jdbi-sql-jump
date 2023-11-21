@@ -5,8 +5,11 @@ plugins {
 
 group = "com.pino"
 version = "1.0.0"
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
@@ -17,6 +20,7 @@ repositories {
 intellij {
     version = "2022.2.5"
     type = "IU" // Target IDE Platform
+    plugins = ['com.intellij.java']
 }
 
 tasks {
