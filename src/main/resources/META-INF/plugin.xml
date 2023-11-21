@@ -29,7 +29,10 @@
     </extensions>
     <actions>
         <action id="com.pino.intellij_jdbi_sql_jump.PopupDialogAction"
-                class="com.pino.intellij_jdbi_sql_jump.PopupDialogAction" text="JDBI SQL Jump">
+                class="com.pino.intellij_jdbi_sql_jump.PopupDialogAction"
+                text="Jdbi Sql Jump"
+                icon="/icons/actionIcon.svg"
+        >
             <add-to-group group-id="EditorPopupMenu" />
         </action>
     </actions>
