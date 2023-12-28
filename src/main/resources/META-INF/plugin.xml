@@ -19,8 +19,9 @@
     <br/><br/>
     By using this plugin, it helps you quickly jump from code to the corresponding SQL file.
     <br/><br/>
-    There has one way to trigger a jump:
+    There has two way to trigger a jump:
     <li>Select the corresponding code, then click on "Jdbi SQL Jump" from the right-click menu.</li>
+    <li>Place cursor inside SQL file, then click on "Jdbi SQL Jump" from the right-click menu.</li>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
