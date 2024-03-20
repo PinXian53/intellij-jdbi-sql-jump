@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.pino"
-version = "1.1.1"
+version = "1.1.2"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -25,8 +25,9 @@ intellij {
 
 tasks {
     patchPluginXml {
+        // Version Number Ref: https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html
         sinceBuild.set("222")
-        untilBuild.set("233.*")
+        untilBuild.set("241.*")
         changeNotes.set(file("pluginChanges.html").getText('UTF-8'))
     }
 
