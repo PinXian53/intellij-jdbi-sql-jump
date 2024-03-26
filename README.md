@@ -1,4 +1,19 @@
-# intellij-jdbi-sql-jump
+<div align="center">
+    <a href="https://plugins.jetbrains.com/plugin/23170-jdbi-sql-jump">
+        <img src="./src/main/resources/META-INF/pluginIcon.svg" width="320" height="320" alt="logo"/>
+    </a>
+</div>
+
+<h1 align="center">Intellij Jdbi SQL Jump</h1>
+
+<p align="center">
+<a href="https://plugins.jetbrains.com/plugin/23170-jdbi-sql-jump"><img src="https://img.shields.io/jetbrains/plugin/r/stars/23170?style=flat-square"></a>
+<a href="https://plugins.jetbrains.com/plugin/23170-jdbi-sql-jump"><img src="https://img.shields.io/jetbrains/plugin/d/23170-jdbi-sql-jump.svg?style=flat-square"></a>
+<a href="https://plugins.jetbrains.com/plugin/23170-jdbi-sql-jump"><img src="https://img.shields.io/jetbrains/plugin/v/23170-jdbi-sql-jump.svg?style=flat-square"></a>
+</p>
+
+<br>
+
 > Jetbrains Marketplace: https://plugins.jetbrains.com/plugin/23170-jdbi-sql-jump
 
 This is a JDBI development tool.
