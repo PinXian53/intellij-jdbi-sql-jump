@@ -100,7 +100,13 @@ public class PopupDialogAction extends AnAction {
     }
 
     private VirtualFile getRootFolder(Project project, VirtualFile file) {
-        return ProjectRootManager.getInstance(project).getFileIndex().getContentRootForFile(file);
+        var rootProject = ProjectRootManager.getInstance(project).getFileIndex().getContentRootForFile(file);
+        final var SRC_MAIN = "/src/main";
+        if(rootProject == null || rootProject.getPath().endsWith(SRC_MAIN)){
+            return rootProject;
+        }
+        var subProjectName = file.getPath().substring(rootProject.getPath().length(), file.getPath().indexOf(SRC_MAIN));
+        return rootProject.findFileByRelativePath(subProjectName + SRC_MAIN);
     }
 
     private String getRelativePath(VirtualFile rootFolder, VirtualFile file) {
@@ -123,7 +129,8 @@ public class PopupDialogAction extends AnAction {
      */
     private String getTargetSqlPath(String relativeFilePath, String methodName) {
         var sqlFolderPath = relativeFilePath
-            .replace("/java", "")
+            .replace("/java/", "/")
+            .replace("/src/main/", "/")
             .replace(".java", "");
         return "resources%s/%s.sql".formatted(sqlFolderPath, methodName);
     }
@@ -135,6 +142,7 @@ public class PopupDialogAction extends AnAction {
      */
     private String getTargetClassName(String relativeFilePath) {
         return relativeFilePath
+            .replace("/src/main/", "/")
             .replace("/resources/", "")
             .replace("/", ".");
     }
