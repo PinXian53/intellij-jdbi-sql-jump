@@ -16,7 +16,7 @@
 
 > Jetbrains Marketplace: https://plugins.jetbrains.com/plugin/23170-jdbi-sql-jump
 
-<b>IntelliJ Jdbi SQL Jump<b/> is a development tool for working with JDBI.
+<b>IntelliJ Jdbi SQL Jump</b> is a development tool for working with JDBI.
 In typical JDBI usage with the `@UseClasspathSqlLocator` annotation, SQL queries are stored in external files. This separation between code and SQL often makes development and navigation less convenient.
 
 This plugin helps bridge that gap by enabling quick navigation from Java code to the corresponding SQL file, making your workflow smoother and more efficient.
